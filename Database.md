@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 ```
 >/config/keys.js
 
-```
+``` javascript
 module.exports = {
   mongoURI: process.env.MONGO_URI,
   secretOrKey: process.env.SECRET_OR_KEY
@@ -41,13 +41,13 @@ module.exports = {
 >/config/keys_dev.js
 
 #### Import your MongoDB address
-```
+``` javascript
 // DB Config
 const db = require('./config/keys').mongoURI;
 ```
 
 #### Connect Node.js to your MongoDB Database
-```
+``` javascript
 // Connect to MongoDB
 mongoose
   .connect(db, {
@@ -58,7 +58,7 @@ mongoose
 ```
 
 ### Full code in entry point server.js
-```
+``` javascript
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
