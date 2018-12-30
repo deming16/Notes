@@ -1,5 +1,6 @@
 ---
 title: HomePage
+deleted: true
 ---
 
 # HomePage
