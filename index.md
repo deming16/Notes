@@ -6,4 +6,4 @@ title: index
 
 
 [Database](./Database.md)
-[Git](./Database.md)
+[Git](./GitCommands.md)
