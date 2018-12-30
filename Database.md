@@ -4,18 +4,18 @@ title: Database
 
 # Database
 
+
 ## MongoDB
 
 ### Setting up MongoDB with Node.js
 The Mongoose module from npm is required for Node.js to interact with MongoDB
 
 ### Connecting Mongoose to MongoDB
-Import mongoose to Node.js entry point
-`const mongoose = require('mongoose');`
+Import mongoose to Node.js entry point <br/>`const mongoose = require('mongoose');`
 
 
 #### Configure keys for Node.js to use with your MongoDB database
-```
+``` javascript
 if (process.env.NODE_ENV === 'production') {
   module.exports = require('./keys_prod');
 } else {
@@ -29,10 +29,10 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   secretOrKey: process.env.SECRET_OR_KEY
 };
-```
+``` 
 >/config/keys_prod.js
 
-```
+``` javascript
 module.exports = {
   mongoURI: 'mongodb://deming16:lucify228@ds243254.mlab.com:43254/dev-connector',
   secretOrKey: 'secret'
