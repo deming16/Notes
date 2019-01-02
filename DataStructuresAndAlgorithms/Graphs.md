@@ -15,9 +15,9 @@
 
 ## Implementing a graph on code
 There are 2 ways of implementing a graph on code:
-1. Adjacency matrix
+1. Adjacency matrix <br/>
 ![AdjMatrix](img/AdjacencyMatrix.png)
-1. Adjacent list
+1. Adjacent list <br/>
 ![AdjList](img/AdjList.png)
 ### Setting up a graph
 #### Creating the node class
