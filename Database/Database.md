@@ -1,5 +1,5 @@
 # Database
-[index](./index.md)
+[index](/index.md)
 
 
 ## MongoDB

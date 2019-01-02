@@ -1,7 +1,3 @@
----
-title: Resume Cheat Sheet
----
-
 **Resume Cheat Sheet**
 ---------------
 
