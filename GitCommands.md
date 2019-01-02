@@ -1,7 +1,3 @@
----
-title: Git Commands
----
-
 # Git Commands
 [index](./index.md)
 

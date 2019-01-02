@@ -1,7 +1,3 @@
----
-title: Database
----
-
 # Database
 [index](./index.md)
 
@@ -12,7 +8,8 @@ title: Database
 The Mongoose module from npm is required for Node.js to interact with MongoDB
 
 ### Connecting Mongoose to MongoDB
-Import mongoose to Node.js entry point <br/>`const mongoose = require('mongoose');`
+Import mongoose to Node.js entry point <br/>
+`const mongoose = require('mongoose');`
 
 
 #### Configure keys for Node.js to use with your MongoDB database
