@@ -71,7 +71,7 @@ class Node {
 ### Graph Traversal
 
 #### Breadth First Search (BFS)
-> Time Complexity - O(V + E)
+> Time Complexity - O(V + E) <br/>
 ``` java
 public void BFS(Node v){
   private Queue<Node> Q = new Queue();
@@ -92,7 +92,7 @@ public void BFS(Node v){
 }
 ```
 #### Depth First Search (DFS)
-> Time Complexity - O(V + E)
+> Time Complexity - O(V + E) <br/>
 ``` java
 public void DFS(Node v) {
   private Stack<Node> S = new Stack();
