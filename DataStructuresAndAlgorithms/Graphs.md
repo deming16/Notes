@@ -29,7 +29,25 @@ There are 2 ways of implementing a graph on code:
 
 #### Breadth First Search (BFS)
 ##### Iterative Version
+```
+Q = new Queue;
+Q.enqueue(v);
+mark v as visited
+while(!Q.isEmpty()) {
+  curr = Q.dequeue()
+  print curr
+  for(w : curr.neighbours) {
+    if(!w.isVisited {
+      Q.enqueue(w);
+      w.isVisited = true;
+    }
+  }
+}
+```
 ##### Recursive Version
+
+##### Time Complexity
+**O(V+E)**
 
 #### Depth First Search (DFS)
 ##### Iterative Version
