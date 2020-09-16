@@ -94,3 +94,43 @@ class Solution:
         
         return prev
 ```
+
+# 3. Merging Linked List
+```
+Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
+
+Example:
+
+Input: 1->2->4, 1->3->4
+Output: 1->1->2->3->4->4
+```
+```python 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = ListNode(-1)
+        L1 = l1
+        L2 = l2
+        curr = dummy
+        
+        while L1 != None and L2 != None:
+            print(L1.val, L2.val)
+            if L1.val < L2.val:
+                curr.next = L1
+                L1 = L1.next
+            else:
+                curr.next = L2
+                L2 = L2.next
+            curr = curr.next
+        
+        if L1 != None:
+            curr.next = L1
+        else:
+            curr.next = L2
+        
+        return dummy.next
+```
