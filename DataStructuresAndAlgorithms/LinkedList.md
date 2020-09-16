@@ -1,4 +1,4 @@
-# Removal of Nodes in Linked List
+# 1. Removal of Nodes in Linked List
 ## Remove Linked List Elements
 ```
 Remove all elements from a linked list of integers that have value val.
@@ -64,4 +64,33 @@ class Solution:
                 currNode = currNode.next
         
         return dummy_head.next
+```
+
+# 2. Reverseal of Linked List
+## Reverse Linked List
+```
+Reverse a singly linked list.
+
+Example:
+
+Input: 1->2->3->4->5->NULL
+Output: 5->4->3->2->1->NULL
+```
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        curr = head
+        while curr != None:
+            nextTemp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nextTemp
+        
+        return prev
 ```
