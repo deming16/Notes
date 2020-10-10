@@ -23,6 +23,12 @@ for number in range(lower,upper):
 
 ## While Loop
 
+## Array
+```python
+len(arr) # length of array
+[[False for _ in range(col)] for _ in range(row)] # init 0/false for matrix
+```
+
 ## List
 - append(item)
 

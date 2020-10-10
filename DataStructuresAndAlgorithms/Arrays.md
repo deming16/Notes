@@ -1,3 +1,57 @@
+# Hashing
+## 2Sum
+```
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+```
+```python
+def twoNumberSum(array, targetSum):
+    # Write your code here.
+	numHash = {}
+	
+	for i,v in enumerate(array):
+		if targetSum - v in numHash:
+			return [numHash[targetSum - v], i]
+		else:
+			numHash.update({v: i})
+	return []
+    pass
+
+```
+
+# Pointers
+## Validate Subsequence
+```
+Given two non-empty arrays of integers, write a function that determines whether the second array 
+is a subsequence of the first one.
+
+A subsequence of an array is a set of numbers that aren't necessarily adjacent in the array but that are in the same order as they appear in the array. For instance, the numbers [1, 3, 4] form a subsequence of the array [1, 2, 3, 4] and so do that numbers [2,4]. Note that a single number in an array and the array itself are both valid subsequences of the array
+```
+```python
+def isValidSubsequence(array, sequence):
+    # Write your code here.
+	aIndex = 0
+	bIndex = 0
+	for v in array:
+		if sequence[bIndex] == v:
+			bIndex += 1
+		if bIndex == len(sequence):
+			return True
+	
+	return False
+    pass
+```
 # Binary Search
 ## Binary Search on Sorted List
 ```
@@ -87,7 +141,7 @@ class Solution:
         
         return left
 ```
-
+# Simulation
 ## Spiral Matrix
 ```
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
