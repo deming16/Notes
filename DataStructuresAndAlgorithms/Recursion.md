@@ -1,3 +1,25 @@
+## Nth Fibonacci
+```
+Nth Fibonacci, f(n) = (n - 1)th + (n - 2)th
+when f(1) = 0, f(2) = 1
+find f(n)
+```
+```python
+def getNthFib(n):
+    # Write your code here.
+	if n == 1:
+		return 0
+	if n == 2:
+		return 1
+	lastTwo = [0,1]
+	for _ in range(3, n+1):
+		temp = lastTwo[0]
+		lastTwo[0] = lastTwo[1]
+		lastTwo[1] = lastTwo[1] + temp
+	
+	return lastTwo[1]
+    pass
+```
 ## Permutations
 ```
 Given a collection of distinct integers, return all possible permutations.
