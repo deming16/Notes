@@ -33,6 +33,98 @@ class BST:
         self.left = None
         self.right = None
 ```
+
+## BST Construction
+```
+Write a BST class for a Binary Search Tree. The class should support:
+- Inserting values with the insert method.
+- Removing values with the remove method; this method should only remove the first instance of a given value.
+- Searching for values with the contains method.
+Note that you can't remove values from a single-node tree. In other words, calling the remove method on a single-node tree should simply not do anything.
+
+Each BST node has an integer value, a left child node, and a right child node. A node is said to be a valid BST node if and only if it satisfies the BST property: its value is strictly greater than the values of every node to its left; its value is less than or equal to the values of every node to its right; and its children nodes are either valid BST nodes themselves or None/null
+```
+```python
+# Do not edit the class below except for
+# the insert, contains, and remove methods.
+# Feel free to add new properties and methods
+# to the class.
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+    def insert(self, value):
+        # Write your code here.
+        # Do not edit the return statement of this method.
+		currNode = self
+		while True:
+			if value >= currNode.value:
+				if currNode.right == None:
+					currNode.right = BST(value)
+					break
+				else:
+					currNode = currNode.right
+			if value < currNode.value:
+				if currNode.left == None:
+					currNode.left = BST(value)
+					break
+				else:
+					currNode = currNode.left
+        return self
+
+    def contains(self, value):
+        # Write your code here.
+		currNode = self
+		while currNode != None:
+			if value == currNode.value:
+				return True
+			elif value > currNode.value:
+				currNode = currNode.right
+			else:
+				currNode = currNode.left
+		
+		return False
+        pass
+
+    def remove(self, value, parentNode = None):
+        # Write your code here.
+        # Do not edit the return statement of this method.
+		currNode = self
+		
+		while currNode != None:
+			if value > currNode.value:
+				parentNode = currNode
+				currNode = currNode.right
+			elif value < currNode.value:
+				parentNode = currNode
+				currNode = currNode.left
+			else:
+				if currNode.left != None and currNode.right != None:
+					minNode = currNode.right
+					while minNode.left != None:
+						minNode = minNode.left
+					currNode.value = minNode.value
+					currNode.right.remove(minNode.value, currNode)
+				elif parentNode == None:
+					if currNode.left != None:
+						currNode.value = currNode.left.value
+						currNode.right = currNode.left.right
+						currNode.left = currNode.left.left
+					if currNode.right != None:
+						currNode.value = currNode.right.value
+						currNode.left = currNode.right.left
+						currNode.right = currNode.right.right
+				else:
+					if parentNode.left == currNode:
+						parentNode.left = currNode.left if currNode.left != None else currNode.right
+					if parentNode.right == currNode:
+						parentNode.right = currNode.left if currNode.left != None else currNode.right
+				break
+		
+        return self
+```
 ## Find Lowest Common Ancestor
 ```
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
