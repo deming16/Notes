@@ -1,5 +1,8 @@
 # JavaScript
-
+```javascript
+// Ternery
+a = <condition> ? valueWhenTrue : valueWhenFalse
+```
 ## Array
 ```javascript
 arr.sort() // Sort in desc

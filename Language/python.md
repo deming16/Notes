@@ -1,5 +1,8 @@
 # Python
-
+```python
+# Ternery Operation
+a = value_when_true if <condition> else value_when_false
+```
 ## Numbers
 - Max num: `float("inf")`
 - Min num: `float("-inf")`
