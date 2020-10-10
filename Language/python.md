@@ -28,14 +28,15 @@ for number in range(lower,upper):
 
 ## While Loop
 
-## Array
+## Array/List
 ```python
 len(arr) # length of array
 [[False for _ in range(col)] for _ in range(row)] # init 0/false for matrix
-```
+type(arr) is list # check if list
 
-## List
-- append(item)
+# ØPERATIONS
+append(item) # add to end of list
+```
 
 ## Set
 - add(item)
