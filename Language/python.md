@@ -2,6 +2,8 @@
 ```python
 # Ternery Operation
 a = value_when_true if <condition> else value_when_false
+# Absolute
+a = abs(value)
 ```
 ## Numbers
 - Max num: `float("inf")`

@@ -1,7 +1,11 @@
 # JavaScript
 ```javascript
 // Ternery
-a = <condition> ? valueWhenTrue : valueWhenFalse
+a = condition ? valueWhenTrue : valueWhenFalse;
+// Absolute 
+a = Math.abs(value)
+// Integer Division
+Math.floor(y/x)
 ```
 ## Array
 ```javascript
