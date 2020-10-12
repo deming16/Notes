@@ -36,6 +36,7 @@ type(arr) is list # check if list
 
 # ØPERATIONS
 append(item) # add to end of list
+reversed(arr) # reverse array
 ```
 
 ## Set

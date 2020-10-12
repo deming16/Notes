@@ -20,10 +20,17 @@ for (let i of array) {
 
 ## Array
 ```javascript
-arr.sort() // Sort in desc
-arr.sort((a, b) => a - b) // Sort in asc 
 arr.length // length of array
-Array.isArray // Check if 
+Array.isArray(arr) // Check if item is of type array
 Array(R).fill().map(() => Array(C).fill(false)) // Init 0/false for matrix
 Array(R).fill(0) // init 0/false for array
+
+// OPERATIONS
+arr.sort() // Sort in desc
+arr.sort((a, b) => a - b) // Sort in asc 
+arr.slice(x, y) // return array from index [x, y)
+arr.concat(arr1) // concat 2 arrays
+arr.reverse() // reverse array
+arr.push() // add element to end of array
+arr.pop() // pop element from end of array
 ```
