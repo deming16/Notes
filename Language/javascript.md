@@ -6,6 +6,7 @@ a = condition ? valueWhenTrue : valueWhenFalse;
 a = Math.abs(value)
 // Integer Division
 Math.floor(y/x)
+Infinity // Max number
 ```
 
 ## For Loops
@@ -33,4 +34,16 @@ arr.concat(arr1) // concat 2 arrays
 arr.reverse() // reverse array
 arr.push() // add element to end of array
 arr.pop() // pop element from end of array
+arr.shift() // remove first element
+```
+
+## Strings
+```javascript
+// ASCII code --> 96 to 122
+char.charCodeAt() // Return ASCII code for char
+
+String.fromCharCode(code) // Return the character given a ascii code
+arr.join('') // join array with delimiter
+str.includes('string')
+parseInt(str)
 ```

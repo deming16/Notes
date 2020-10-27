@@ -8,6 +8,7 @@ a = abs(value)
 ## Numbers
 - Max num: `float("inf")`
 - Min num: `float("-inf")`
+- Absolute: `abs(n)`
 
 ## For Loop
 ```python
@@ -37,6 +38,8 @@ type(arr) is list # check if list
 # ØPERATIONS
 append(item) # add to end of list
 reversed(arr) # reverse array
+arr.pop() # remove last item
+arr.remove(val) # remove first item with specified value
 ```
 
 ## Set
@@ -45,3 +48,10 @@ reversed(arr) # reverse array
 ## Dict
 
 ## Tuple
+
+## String
+```python
+# a-z --> 96 to 122
+ord(char) # Return ASCII code of char
+chr(code) # Return character given ascii code
+```
