@@ -176,6 +176,30 @@ class Solution:
         
         return left
 ```
+
+# Other Searching by Elimination
+## Search in Sorted Matrix
+```
+You're given a matrix of distinct integers and a target integer. Each row in the matrix is sorted, and each column is also sorted; the matrix doesn't necessarily have the same height and width.
+
+Write a function that returns an array of the row and column indices of the target integer if it's contained in the matrix, otherwise [-1, -1].
+```
+```python
+def searchInSortedMatrix(matrix, target):
+	row, col = 0, len(matrix[0]) - 1
+	
+	while row <= len(matrix[0]) - 1 and col >= 0:
+		if matrix[row][col] == target:
+			return [row,col]
+        # If number is too big, means anything below is also too big so we don't want the entire column
+		elif matrix[row][col] > target:
+			col -= 1
+        # If the number is too small, means anything to the left is also too small so we don't want the entire row
+		else:
+			row += 1
+	
+	return [-1,-1]
+```
 # Simulation
 ## Spiral Matrix
 ```

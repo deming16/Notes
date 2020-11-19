@@ -29,7 +29,7 @@ Array(R).fill(0) // init 0/false for array
 // OPERATIONS
 arr.sort() // Sort in desc
 arr.sort((a, b) => a - b) // Sort in asc 
-arr.slice(x, y) // return array from index [x, y)
+arr.slice(x, y) // return array from index [x, y), array.slice() to make a copy
 arr.concat(arr1) // concat 2 arrays
 arr.reverse() // reverse array
 arr.push() // add element to end of array

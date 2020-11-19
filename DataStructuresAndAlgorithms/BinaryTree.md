@@ -46,3 +46,42 @@ class Solution:
                 
         return reversed(res)
 ```
+
+# 2. Changing form of tree
+## Invert Binary Tree
+```
+Write a function that takes in a Binary Tree and inverts it. In other words, the function should swap every left node in the tree for its corresponding right node.
+
+Each Binary Tree node has an integer value, a left child node and a right child node. Children nodes can either be BinaryTree nodes themselves or None/null
+    1
+
+```
+```python
+def invertBinaryTree(tree):
+    # Write your code here.
+	stack = []
+	stack.append(tree)
+	
+	while len(stack) > 0:
+		curr = stack.pop()
+		
+		temp = curr.left
+		curr.left = curr.right
+		curr.right = temp
+		
+		if curr.left != None:
+			stack.append(curr.left)
+		if curr.right != None:
+			stack.append(curr.right)
+	
+	return tree
+    pass
+
+
+# This is the class of the input binary tree.
+class BinaryTree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+```
