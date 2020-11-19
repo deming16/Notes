@@ -252,3 +252,25 @@ class Solution:
         
         return ans
 ```
+
+## Maximum Sum Subarray (Kadane's Algorithm)
+```
+write a function that takes in a non-empty array of integers and returns the maximum sum that can be obtained by summing up all of the integers in a non-empty subarray of the input array. A subarray must only contain adjacent numbers.           
+
+Sample Input = [3, 4, -9, 1, 3, -2, 3, 4, 7, 2, -9, 6, 3, 1, -5, 4]
+Sample Output: 19
+```
+```python
+def kadanesAlgorithm(array):
+	maxSum = float("-inf")
+	currSum = 0
+	
+	for num in array:
+		currSum += num
+		if currSum > maxSum:
+			maxSum = currSum
+		if currSum < 0:
+			currSum = 0
+	
+	return maxSum
+```
