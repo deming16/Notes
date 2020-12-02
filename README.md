@@ -2,6 +2,8 @@
 
 ## Data Structures and Algorithms
 1. [Array](DataStructuresAndAlgorithms/Arrays.md)
+1. [String](DataStructuresAndAlgorithms/Strings.md)
+1. [Matrix](DataStructuresAndAlgorithms/Matrix.md)
 1. [Linked List](DataStructuresAndAlgorithms/LinkedList.md)
 1. [Trees](DataStructuresAndAlgorithms/Trees.md)
 1. [Hashing](DataStructuresAndAlgorithms/Hashing.md)

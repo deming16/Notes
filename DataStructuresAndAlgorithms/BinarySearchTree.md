@@ -165,3 +165,51 @@ class Solution:
             else:
                 return curr
 ```
+
+## Binary Tree Diameter
+```
+Write a function that takes in a Binary Tree and returns its diameter. The diameter of a binary tree is defined as the length of its longest path, even if that path doesn't pass through the root of the tree.
+
+A path is a collection of connected nodes in a tree, where no node is connected to more than two other nodes. The length of a path is the number of edges between the path's first node and its last node.
+
+Each Binary Tree node has an integer value, a left child node, and a right child node. Children nodes can either be Binary Tree nodes themselves or None/null
+
+Sample input = 				1
+										/		\
+									3				2
+								/		\	
+							7				4
+						/						\
+					8								5
+				/										\
+			9												6
+
+Sample output = 6
+9 -> 8 -> 7 -> 3 -> 4 -> 5 -> 6
+```
+```python
+class BinaryTree:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+def binaryTreeDiameter(tree):
+	# 2 cases: max is the longest path through root
+	#	vs max is the max diameter found so far
+	# We want the case that will gives us the longest diameter
+    return binaryTreeDiameterHelper(tree)['diameter']
+
+def binaryTreeDiameterHelper(tree):
+	if tree == None:
+		return {'diameter': 0, 'depth': 0}
+		
+	left = binaryTreeDiameterHelper(tree.left)
+	right = binaryTreeDiameterHelper(tree.right)
+	longestPathThroughRoot = left['depth'] + right['depth']
+	maxDiameterSoFar = max(left['diameter'], right['diameter'])
+	newMaxDiameter = max(maxDiameterSoFar, longestPathThroughRoot)
+	newMaxHeight = 1 + max(left['depth'], right['depth'])
+	
+	return {'diameter': newMaxDiameter, 'depth': newMaxHeight}
+```
