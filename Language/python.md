@@ -1,4 +1,10 @@
 # Python
+## Classes
+```python
+class ClassName:
+    def __init__(self, x):
+    self.x = x
+```
 ```python
 # Ternery Operation
 a = value_when_true if <condition> else value_when_false
@@ -44,9 +50,11 @@ arr.remove(val) # remove first item with specified value
 
 ## Set
 - add(item)
-
+- remove(item)
 ## Dict
-
+```python
+pop()
+```
 ## Tuple
 
 ## String

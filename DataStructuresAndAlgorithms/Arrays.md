@@ -189,6 +189,39 @@ class Solution:
         return left
 ```
 
+## Shifted Binary Search
+```
+Write a function that takes in a sorted array of distinct integers as well as a target integer. The caveat is that the integers in the array have been shifted by some amount; in other words, they've been moved to the left or to the right by one or more positions. For example, [1, 2, 3, 4] might have been turned into [3, 4, 1, 2].
+
+The function should use a variation of the Binary Search algorithm to determine if the target integer is contained in the array and should return its index if it is, otherwise -1.
+```
+```python
+def shiftedBinarySearch(array, target):
+    #
+	left = 0
+	right = len(array) - 1
+	
+	while left <= right:
+		mid = (right + left) // 2
+		if array[mid] == target:
+			return mid
+		
+		# case 1: left half is sorted order, check if target is between left half
+		if array[left] < array[mid]:
+			if target < array[mid] and target >= array[left]:
+				right = mid - 1
+			else:
+				left = mid + 1
+		else:
+		# case 2: left half is not in sorted order, right is in sorted order
+			if target > array[mid] and target <= array[right]:
+				left = mid + 1
+			else:
+				right = mid - 1
+	
+	return -1
+```
+
 ## Maximum Sum Subarray (Kadane's Algorithm)
 ```
 write a function that takes in a non-empty array of integers and returns the maximum sum that can be obtained by summing up all of the integers in a non-empty subarray of the input array. A subarray must only contain adjacent numbers.           
@@ -209,4 +242,163 @@ def kadanesAlgorithm(array):
 			currSum = 0
 	
 	return maxSum
+```
+
+## 4 Sums
+```
+Write a function that takes in a non-empty array of distinct integers and an integer representing a target sum. The function should find all the quadruplets in the array that sum up to the target sum and return a two-dimensional array of all these quadruplets in no particular order.
+
+if no four numbers sum up to the target sum, the function should return an empty array.
+```
+```python
+def fourNumberSum(array, targetSum):
+	allPairSums = {}
+	quadruplets = []
+	# Start from 1 since first pass won't find anything
+	for i in range(1, len(array) - 1):
+		
+		# For numbers after index i, check if targetSum minus the sum of i and j
+		# is in the pair sums, if it is add to quadruplets
+		for j in range(i + 1, len(array)):
+			currentSum = array[i] + array[j]
+			diff = targetSum - currentSum
+			if diff in allPairSums:
+				for pair in allPairSums[diff]:
+					quadruplets.append(pair + [array[i], array[j]])
+		
+		# For numbers before index i, add them to the pair sums 
+		for k in range(0, i):
+			currentSum = array[k] + array[i]
+			if currentSum not in allPairSums:
+				allPairSums[currentSum] = [[array[k], array[i]]]
+			else:
+				allPairSums[currentSum].append([array[k], array[i]])
+	
+	return quadruplets
+```
+
+## Subarray Sort
+```
+Write a function that takes in an array of at least two integers and that returns an array of the starting and ending indices of the smallest subarray in the input array that needs to be sorted in place in order for the entire input array to be sorted (in ascending order).
+
+If the input array is already sorted, the function should return [-1, -1]
+
+Input: [1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19]
+Output: [3, 9]
+```
+```python
+def subarraySort(array):
+	minOutOfOrder = float("inf")
+	maxOutOfOrder = float("-inf")
+	for i in range(len(array)):
+		# iterate the array and find out of order
+		num = array[i]
+		if isOutOfOrder(i, num, array):
+			minOutOfOrder = min(num, minOutOfOrder)
+			maxOutOfOrder = max(num, maxOutOfOrder)
+		
+	# Check if its already sorted
+	if minOutOfOrder == float("inf"):
+		return [-1, -1]
+	# if not sorted, find the left index using min out of order number
+	leftIdx = 0
+	while minOutOfOrder >= array[leftIdx]:
+		leftIdx += 1
+	rightIdx = len(array) - 1
+	# then find the right index using max out of order number
+	while maxOutOfOrder <= array[rightIdx]:
+		rightIdx -= 1
+	
+	return [leftIdx, rightIdx]
+    pass
+
+
+def isOutOfOrder(i, num, array):
+	if i == 0:
+		return num > array[i + 1]
+	if i == len(array) - 1:
+		return num < array[i - 1]
+	return num > array[i + 1] or num < array[i - 1]
+```
+
+## LargestRange
+```
+Write a function that takes in an array of integers and returns an array of length 2 representing the largest range of integers contained in that array.
+
+The first number in the output array should be the first number in the range, while the second number should be the last number in the range.
+
+A range of numbers is defined as a set of numbers that come right after each other in the set of real integers. For instance, the output array [2, 6] represents the range {2, 3, 4, 5, 6}, which is a range of length 5. Note that numbers don't need to be sorted or adjacent in the input array in order to form a range.
+
+you can assume that there will only be one largest range.
+```
+```python
+def largestRange(array):
+	# setup hashmap for visited numbers, longest length and longest range
+	nums = {}
+	longestLength = 0
+	longestRange = []
+	for num in array:
+		nums[num] = False
+	# Iterate through the array:
+	for num in array:
+		if nums[num]:
+			continue
+		# a. For each number, traverse left and right to find range
+		# b. mark number as visited and increment current length
+		currLength = 1
+		nums[num] = True
+		left = num - 1
+		right = num + 1
+		while left in nums and not nums[left]:
+			currLength += 1
+			left -=1
+		while right in nums and not nums[right]:
+			currLength += 1
+			right += 1
+		# d. Update longest length so far and range
+		if currLength > longestLength:
+			longestLength = currLength
+			longestRange = [left + 1, right - 1]
+			
+		# c. stop when we reached a visited number on both sides
+	return longestRange
+```
+
+## Min Rewards
+``` Imagine that you're a teacher who's just graded the final exam in a class. You have a list of student scores on the final exam in a particular order (not necessarily sorted), and you want to reward your students. You decide to do so fairly by giving them arbitrary rewards following two rules:
+	1) All students must receive at least one reward
+	2) Any given student must receive strictly more rewards than an adjacent student (a student immediately to the left or to the right) with a lower score an must receive strictly fewer rewards than an adjacent student with a higher score.
+
+Write a function that takes in a list of scores and returns the minimum number of rewards that you must give out to students to satisfy the two rules.
+
+You can assume that all students have different scores; in other words, the scores are all unique.
+```
+```python
+def minRewards(scores):
+    # Using Peaks and Valleys method
+	# Keep track of: the rewards ar# case 2: left half is not in sorted orderray
+	length = len(scores)
+	rewards = [1 for _ in range(length)]
+	currIdx = 0
+	boundaryIdx = -1
+	# Iterate through the array
+	while currIdx < length:
+		# a. When i find a valley, Traverse left and right until local peak
+		if ((currIdx == length - 1 or scores[currIdx] < scores[currIdx + 1])
+			and (currIdx == 0 or scores[currIdx] < scores[currIdx - 1])):
+			left = currIdx - 1
+			right = currIdx + 1
+			while left >= 0 and scores[left] > scores[left + 1]:
+				rewards[left] = max(rewards[left + 1] + 1, rewards[left])
+				left -= 1
+			while right < length and scores[right] > scores[right - 1]:
+				rewards[right] += rewards[right - 1]
+				right += 1
+			currIdx = right
+			boundaryIdx = right - 1
+			continue
+		# b. continue from the peak on the right
+		currIdx += 1
+	print(rewards)
+	return sum(rewards)
 ```
