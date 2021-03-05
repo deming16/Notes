@@ -31,6 +31,7 @@ for number in range(n):
 for number in range(lower,upper):
   #upper is not inclusive
   #code
+for key,value in dict.items():
 ```
 
 ## While Loop
@@ -53,13 +54,23 @@ arr.remove(val) # remove first item with specified value
 - remove(item)
 ## Dict
 ```python
-pop()
+map = {}
+map.update({key : value})
+map.values()
+map.keys()
+map.pop(key)
 ```
 ## Tuple
 
 ## String
 ```python
-# a-z --> 96 to 122
+# a-z --> 97 to 122
+# A-Z --> 65 to 90
 ord(char) # Return ASCII code of char
 chr(code) # Return character given ascii code
+string.split(separator, maxsplit)
+string.find(value, start, end)
+string.isalnum() string.isalpha() string.isnumeric()
+string.islower() string.isupper()
+string.isspace()
 ```

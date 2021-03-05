@@ -10,7 +10,7 @@ Sample Input: [5, 1, 4, 2]
 Sample Output: [8, 40, 10, 20]
 
 Note that you're expected to solve this problem without division.
-
+```
 ## Longest Peak
 ```
 Write a function that takes in an array of integers and returns the length of the longest peak in the array.
@@ -42,7 +42,6 @@ def longestPeak(array):
 			longestPeak = currPeak if currPeak > longestPeak else longestPeak
 	
 	return longestPeak
-    pass
 ```
 
 # Hashing

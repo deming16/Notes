@@ -35,6 +35,8 @@ arr.reverse() // reverse array
 arr.push() // add element to end of array
 arr.pop() // pop element from end of array
 arr.shift() // remove first element
+
+arr.splice(arr.indexOf(x), 1)
 ```
 
 ## Strings
@@ -45,5 +47,30 @@ char.charCodeAt() // Return ASCII code for char
 String.fromCharCode(code) // Return the character given a ascii code
 arr.join('') // join array with delimiter
 str.includes('string')
+str.split(" ");
+str.substring(start, endExclude)
+str.indexOf("string")
 parseInt(str)
+
+const elements = ['Fire', 'Air', 'Water'];
+elements.join("-")
+```
+
+## Set
+```javascript
+var set = new Set()
+set.add(value)
+set.clear()
+set.delete(value)
+set.has(value)
+```javascript
+
+## Map
+```javascript
+var map = new Map();
+map.set(v, []) // assign empty array to v
+map.get(v)
+map.get(v).push(w)
+map.keys() // get keys
+for (var i of map.keys())
 ```
