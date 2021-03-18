@@ -213,3 +213,43 @@ def binaryTreeDiameterHelper(tree):
 	
 	return {'diameter': newMaxDiameter, 'depth': newMaxHeight}
 ```
+
+## Find Kth largest value in BST
+``` javascript
+// This is an input class. Do not edit.
+class BST {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class TreeInfo {
+	constructor(numVisited, latestNode) {
+		this.numVisited = numVisited;
+		this.latestNode = latestNode;
+	}
+}
+
+function findKthLargestValueInBst(tree, k) {
+	var treeInfo = new TreeInfo(0, null)
+  reverseInOrderTraversal(tree, k, treeInfo);
+  return treeInfo.lastestNode.value;
+}
+
+function reverseInOrderTraversal(node, k, treeInfo) {
+	if (node === null || treeInfo.numVisited > k) return;
+	
+	reverseInOrderTraversal(node.right, k, treeInfo);
+	treeInfo.numVisited += 1;
+	if (treeInfo.numVisited <= k) {
+		treeInfo.lastestNode = node;
+	}
+	reverseInOrderTraversal(node.left, k, treeInfo);
+}
+
+// Do not edit the lines below.
+exports.BST = BST;
+exports.findKthLargestValueInBst = findKthLargestValueInBst;
+```

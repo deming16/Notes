@@ -11,14 +11,50 @@ Sample Output: [8, 40, 10, 20]
 
 Note that you're expected to solve this problem without division.
 ```
-## Longest Peak
+## Sorted Squared Array
+Write a function that takes in a non-empty array of integers that are sorted in ascending
+order and returns a new array of the same length with the squares of the original integers also
+sorted in ascending order.
+
+<details>
+<summary>Python</summary>
+
+```python
+def sortedSquaredArray(array):
+    leftIdx,rightIdx = 0, len(array) - 1
+	res = []
+	
+	while leftIdx <= rightIdx:
+		if abs(array[leftIdx]) > abs(array[rightIdx]):
+			res.append(array[leftIdx] * array[leftIdx])
+			leftIdx += 1
+		else:
+			res.append(array[rightIdx] * array[rightIdx])
+			rightIdx -= 1
+			
+	res.reverse()
+    return res
 ```
+</details>
+<details>
+<summary>JavaScript</summary>
+
+```javascript
+
+```
+</details>
+
+## Longest Peak
+
 Write a function that takes in an array of integers and returns the length of the longest peak in the array.
 
 A peak is defined as adjacent integers in the array that are strictly increasing until they reach a tip (the highest value in the peak), at which point they become strictly decreasing. At least three integers are required to form a peak.
 
 For example, the integers [1, 4, 10, 2] form a peak, but the integers [4, 0, 10] don't and neither do the integers [1, 2, 2, 0]. Similarly, the integers [1, 2, 3] don't form a peak because there aren't any strictly decreasing integers after the 3.
-```
+
+<details>
+<summary>Python</summary>
+
 ```python
 def longestPeak(array):
     # 1. Traverse the array
@@ -43,6 +79,8 @@ def longestPeak(array):
 	
 	return longestPeak
 ```
+</details>
+
 
 # Hashing
 ## 2Sum
@@ -52,8 +90,6 @@ Given an array of integers nums and an integer target, return indices of the two
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
 You can return the answer in any order.
-
- 
 
 Example 1:
 
